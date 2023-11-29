@@ -1,0 +1,35 @@
+diff --git a/src/cdclcasampler.cpp b/src/cdclcasampler.cpp
+index 0f07146..04add28 100644
+--- a/src/cdclcasampler.cpp
++++ b/src/cdclcasampler.cpp
+@@ -389,7 +389,7 @@ void CDCLCASampler::GenerateCoveringArray()
+     auto start_time = chrono::system_clock::now().time_since_epoch();
+     Init();
+ 
+-    for (num_generated_testcase_ = 1; ; num_generated_testcase_++)
++    for (num_generated_testcase_ = 1; num_generated_testcase_ <=1000; num_generated_testcase_++)
+     {
+         (this->*p_update_tuple_info_)();
+         if (use_upperlimit && upperlimit == num_tuple_){
+@@ -401,14 +401,8 @@ void CDCLCASampler::GenerateCoveringArray()
+         cout << num_generated_testcase_ << ": " << num_tuple_ << endl;
+         (this->*p_update_sample_weight_)();
+         GenerateTestcase();
+-        if (!selected_candidate_bitset_.count()){
+-            testcase_set_.pop_back();
+-            break;
+-        }
+     }
+     
+-    clear_final();
+-
+     auto end_time = chrono::system_clock::now().time_since_epoch();
+     cpu_time_ = chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count() / 1000.0;
+     cout << "c Generate testcase set finished, containing " << testcase_set_.size() << " testcases!" << endl;
+@@ -794,4 +788,4 @@ void CDCLCASampler::SetUpperLimit(std::string answer_file_path){
+     int ret = fscanf(in, "%lld", &upperlimit);
+     use_upperlimit = true;
+     fclose(in);
+-}
+\ No newline at end of file
++}
