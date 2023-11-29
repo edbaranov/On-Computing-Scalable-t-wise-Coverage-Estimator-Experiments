@@ -1,6 +1,6 @@
 # Readme
 
-This supplementary materials contain information for the reproduction of experiments and experiment results.  
+This supplemental materials contain information for the reproduction of experiments and experiment results.  
 
 ## Results
 
@@ -110,7 +110,7 @@ Readme file contains installation instructions.
 
 SamplingCA is available at [https://github.com/chuanluocs/SamplingCA](https://github.com/chuanluocs/SamplingCA)  
 
-The modification described in the paper can be found in changes.patch file in the supplementary materials. The installation is the following:  
+The modification described in the paper can be found in changes.patch file. The installation is the following:  
 1) `cd SamplingCA`  
 2) `git apply /path/to/changes.patch`  
 3) `make`  
@@ -134,7 +134,7 @@ Sample sets have been generated with the following commands (run from the corres
 8) SamplingCA:  
 `./SamplingCA -input_cnf_path <benchmark_name> -seed 1 -k 100 -output_testcase_path <output_file>`  
 
-For the latter 3 tools `<output_file>` format has to be converted. We provide a python script `convert.py` in the supplementary materials. The usage is:  
+For the latter 3 tools `<output_file>` format has to be converted. We provide a python script `convert.py`. The usage is:  
 `python3 convert.py --tool <tool_name> --outputfile <samples_file> <output_file>`  
 `<tool_name>` is one of the samplingca, ls-sampling, cmsgen; `<output_file>` is the tool output; `<samples_file>` is the file created by the script with a format supported by ApproxCov
 
